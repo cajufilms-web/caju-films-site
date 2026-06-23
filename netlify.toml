@@ -1,0 +1,55 @@
+# ═══════════════════════════════════════════════════════════════
+#  CAJU FILMS — netlify.toml
+#  Configuração de deploy para Netlify
+# ═══════════════════════════════════════════════════════════════
+
+[build]
+  publish = "."         # Raiz do projeto (sem build step estático)
+  # command = ""        # Sem comando de build — HTML/CSS/JS puro
+
+# ─── Headers de segurança e cache ───────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Cache: assets com hash de versão → cache longo
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache: HTML → sem cache (sempre fresco)
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Cache: CSS e JS → curto (permite atualizações rápidas)
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# ─── Redirects ──────────────────────────────────────────────────
+# Redireciona www → não-www (ajuste conforme seu domínio)
+# [[redirects]]
+#   from   = "https://www.cajufilms.com.br/*"
+#   to     = "https://cajufilms.com.br/:splat"
+#   status = 301
+#   force  = true
+
+# ─── Página de erro 404 (opcional) ─────────────────────────────
+# [[redirects]]
+#   from   = "/*"
+#   to     = "/404.html"
+#   status = 404
