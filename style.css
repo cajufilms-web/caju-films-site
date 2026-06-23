@@ -1361,3 +1361,80 @@ footer {
   transform-box: fill-box;
   transform-origin: center;
 }
+/* FIX FINAL — HEADER CAJU FILMS */
+
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  z-index: 999;
+}
+
+.nav-logo {
+  justify-self: start;
+}
+
+.nav-logo-img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  display: block;
+}
+
+.nav-links {
+  position: static !important;
+  transform: none !important;
+  justify-self: center;
+  display: flex;
+  gap: 40px;
+}
+
+.nav-right {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+}
+
+.footer-nav {
+  position: static !important;
+  height: auto !important;
+  padding: 0 !important;
+  display: flex !important;
+  justify-content: center;
+  gap: 24px;
+}
+
+.hero-logo-img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.footer-logo-img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .site-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 24px;
+  }
+
+  .nav-links,
+  .nav-cta {
+    display: none !important;
+  }
+
+  .nav-burger {
+    display: flex;
+  }
+}
