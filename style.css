@@ -329,7 +329,7 @@ h1, h2, h3, h4 { font-weight: inherit; }
      → centralização perfeita, independente de qualquer largura
    · .nav-right: margin-left:auto (direita)
    ───────────────────────────────────────────────────────────── */
-nav {
+#nav {
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 900;
@@ -346,7 +346,7 @@ nav {
 }
 
 /* Estado após scroll: fundo translúcido claro */
-nav.scrolled {
+#nav.scrolled {
   height: 64px;
   background: rgba(246, 243, 238, 0.96);
   backdrop-filter: blur(20px);
@@ -365,10 +365,12 @@ nav.scrolled {
   transition: opacity var(--dur-fast);
 }
 .nav-logo:hover { opacity: 0.65; }
-.nav-logo svg {
-  height: 24px;
-  width: auto;
+.nav-logo-img {
+  width: 44px;
+  height: 44px;
   display: block;
+  object-fit: contain;
+  border-radius: 2px;
 }
 
 /* ── Links — absolutamente centrados ── */
@@ -424,10 +426,31 @@ nav.scrolled {
   color:        var(--linho);
   border-color: var(--sombra);
 }
-nav.scrolled .nav-cta:hover {
+#nav.scrolled .nav-cta:hover {
   background:   var(--sombra);
   color:        var(--linho);
   border-color: var(--sombra);
+}
+
+
+/* Header refinado: grid de 3 colunas para impedir sobreposição */
+#nav {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) auto minmax(220px, 1fr);
+  column-gap: 32px;
+}
+#nav .nav-logo { justify-self: start; }
+#nav .nav-links {
+  position: static;
+  left: auto;
+  transform: none;
+  justify-self: center;
+  display: flex;
+  gap: 40px;
+}
+#nav .nav-right {
+  justify-self: end;
+  margin-left: 0;
 }
 
 /* ── Hambúrguer ── */
@@ -616,10 +639,12 @@ nav.scrolled .nav-cta:hover {
 .hero-isotipo {
   margin-bottom: var(--sp-6);   /* 48px */
 }
-.hero-isotipo svg {
-  height: 56px;
-  width: auto;
+.hero-logo-img {
+  width: 72px;
+  height: 72px;
   margin: 0 auto;
+  object-fit: contain;
+  display: block;
 }
 
 /* Label / eyebrow do hero */
@@ -1033,9 +1058,11 @@ footer {
   justify-content: center;
   margin-bottom: var(--sp-4);   /* 32px */
 }
-.footer-iso svg {
-  height: 48px;
-  width: auto;
+.footer-logo-img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  display: block;
 }
 
 /* Linha divisória discreta */
@@ -1065,7 +1092,7 @@ footer {
   margin-bottom: var(--sp-4);   /* 32px */
 }
 
-.footer-nav {
+.footer-#nav {
   display: flex;
   gap: var(--sp-3);   /* 24px */
   justify-content: center;
@@ -1111,8 +1138,8 @@ footer {
     --section-v: var(--sp-15);   /* 120px */
   }
 
-  /* Reduz gap entre nav-links */
-  .nav-links { gap: var(--sp-4); }  /* 32px */
+  #nav { grid-template-columns: minmax(80px, 1fr) auto minmax(180px, 1fr); column-gap: 20px; }
+  #nav .nav-links { gap: 28px; }
 
   /* Cards: 2 colunas */
   .cards-grid {
@@ -1136,7 +1163,8 @@ footer {
   }
 
   /* ── Nav ── */
-  nav { padding: 0 var(--sp-3); }
+  #nav { padding: 0 var(--sp-3); }
+  #nav { display: flex; }
   .nav-links { display: none; }
   .nav-cta   { display: none; }
   .nav-burger { display: flex; }
@@ -1150,7 +1178,7 @@ footer {
     padding-right: var(--sp-3);
     padding-top: calc(var(--nav-h) + var(--sp-4));
   }
-  .hero-isotipo svg { height: 44px; }
+  .hero-logo-img { width: 56px; height: 56px; }
   .hero-title   { margin-bottom: var(--sp-3); }
   .hero-sub     { margin-bottom: var(--sp-5); }
   .hero-actions {
@@ -1208,7 +1236,7 @@ footer {
 @media (max-width: 480px) {
   :root { --section-v: var(--sp-8); }  /* 64px */
 
-  .hero-isotipo svg { height: 36px; }
+  .hero-logo-img { width: 48px; height: 48px; }
 
   .project-info {
     flex-direction: column;
@@ -1238,7 +1266,7 @@ footer {
    20. AJUSTE MANUAL CAJU — HEADER E LOGOTIPO
    Correção de sobreposição no menu desktop + logotipo em texto real.
    ───────────────────────────────────────────────────────────── */
-nav {
+#nav {
   display: grid;
   grid-template-columns: minmax(170px, 1fr) auto minmax(220px, 1fr);
   column-gap: 32px;
@@ -1304,7 +1332,7 @@ nav {
 }
 
 @media (min-width: 769px) and (max-width: 1120px) {
-  nav {
+  #nav {
     grid-template-columns: minmax(150px, 0.85fr) auto minmax(190px, 0.85fr);
     column-gap: 24px;
   }
@@ -1316,7 +1344,7 @@ nav {
 }
 
 @media (max-width: 768px) {
-  nav {
+  #nav {
     display: flex;
     justify-content: space-between;
     grid-template-columns: none;
