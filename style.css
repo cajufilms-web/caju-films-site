@@ -1232,3 +1232,104 @@ footer {
   outline-offset: 3px;
   border-radius: 2px;
 }
+
+
+/* ─────────────────────────────────────────────────────────────
+   20. AJUSTE MANUAL CAJU — HEADER E LOGOTIPO
+   Correção de sobreposição no menu desktop + logotipo em texto real.
+   ───────────────────────────────────────────────────────────── */
+nav {
+  display: grid;
+  grid-template-columns: minmax(170px, 1fr) auto minmax(220px, 1fr);
+  column-gap: 32px;
+  align-items: center;
+}
+
+.nav-logo {
+  justify-self: start;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  min-width: 170px;
+  line-height: 1;
+}
+
+.nav-logo svg { display: none; }
+
+.nav-logo-word {
+  font-family: var(--serif);
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: currentColor;
+}
+
+.nav-logo-sub {
+  font-family: var(--serif);
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  color: currentColor;
+  opacity: 0.58;
+  transform: translateY(-1px);
+}
+
+.nav-links {
+  position: static;
+  left: auto;
+  transform: none;
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 44px;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.nav-link {
+  font-size: 11px;
+  letter-spacing: 0.11em;
+}
+
+.nav-right {
+  justify-self: end;
+  margin-left: 0;
+  min-width: 220px;
+  justify-content: flex-end;
+}
+
+.nav-cta {
+  padding: 9px 22px;
+}
+
+@media (min-width: 769px) and (max-width: 1120px) {
+  nav {
+    grid-template-columns: minmax(150px, 0.85fr) auto minmax(190px, 0.85fr);
+    column-gap: 24px;
+  }
+  .nav-links { gap: 28px; }
+  .nav-logo { min-width: 150px; }
+  .nav-logo-word { font-size: 27px; }
+  .nav-logo-sub { font-size: 10px; letter-spacing: 0.18em; }
+  .nav-cta { padding: 8px 16px; font-size: 10px; }
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    grid-template-columns: none;
+  }
+  .nav-logo { min-width: auto; }
+  .nav-logo-word { font-size: 28px; }
+  .nav-logo-sub { font-size: 10px; }
+  .nav-right { min-width: auto; }
+}
+
+/* Ajuste fino do símbolo no Hero: mantém o ponto como acento, sem parecer deslocado */
+.hero-isotipo svg circle,
+.footer-iso svg circle {
+  transform-box: fill-box;
+  transform-origin: center;
+}
