@@ -3,12 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1E1A17" />
+  <meta name="author" content="Caju Films" />
 
-  <!-- ─── SEO PRIMÁRIO ──────────────────────────────────────────── -->
+  <!-- ─── SEO ──────────────────────────────────────────────────── -->
   <title>Caju Films — Produção Audiovisual Premium | Belo Horizonte</title>
-  <meta name="description" content="Produtora audiovisual com direção de arte e ponto de vista autoral. Filmes institucionais, campanhas, arquitetura, lifestyle e eventos. Baseados em BH, atuamos no Brasil e internacionalmente." />
+  <meta name="description" content="Produtora audiovisual com direção de arte e ponto de vista autoral. Filmes, campanhas, arquitetura, lifestyle e eventos. BH — Brasil — Internacional." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://cajufilms.com.br/" />
+
+  <!-- ─── FAVICON ───────────────────────────────────────────────── -->
+  <!-- Coloque os arquivos na pasta /assets/ -->
+  <link rel="icon"             href="assets/favicon.ico" sizes="any" />
+  <link rel="icon"             href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 
   <!-- ─── OPEN GRAPH ────────────────────────────────────────────── -->
   <meta property="og:type"         content="website" />
@@ -18,12 +26,13 @@
   <meta property="og:image"        content="https://cajufilms.com.br/assets/og-image.jpg" />
   <meta property="og:image:width"  content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt"    content="Caju Films — Produção Audiovisual" />
+  <meta property="og:image:alt"    content="Caju Films — Produção Audiovisual Premium, Belo Horizonte" />
   <meta property="og:locale"       content="pt_BR" />
   <meta property="og:site_name"    content="Caju Films" />
 
   <!-- ─── TWITTER CARDS ────────────────────────────────────────── -->
   <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:site"        content="@cajufilms" />
   <meta name="twitter:title"       content="Caju Films — Produção Audiovisual Premium" />
   <meta name="twitter:description" content="Cinema para quem constrói marcas." />
   <meta name="twitter:image"       content="https://cajufilms.com.br/assets/og-image.jpg" />
@@ -31,30 +40,47 @@
   <!-- ─── TIPOGRAFIA ───────────────────────────────────────────── -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <!-- ─── CSS ──────────────────────────────────────────────────── -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- ─── JSON-LD ──────────────────────────────────────────────── -->
+  <!-- ─── JSON-LD — DADOS ESTRUTURADOS ─────────────────────────── -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Caju Films",
-    "url": "https://cajufilms.com.br",
-    "logo": "https://cajufilms.com.br/assets/og-image.jpg",
-    "image": "https://cajufilms.com.br/assets/og-image.jpg",
-    "description": "Produtora audiovisual com direção de arte e ponto de vista autoral.",
-    "telephone": "+5531995989536",
-    "email": "contato@cajufilms.com.br",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Belo Horizonte",
-      "addressRegion": "Minas Gerais",
-      "addressCountry": "BR"
-    },
-    "sameAs": ["https://www.instagram.com/caju.films/"]
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://cajufilms.com.br/#organization",
+        "name": "Caju Films",
+        "url": "https://cajufilms.com.br",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://cajufilms.com.br/assets/og-image.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "description": "Produtora audiovisual com direção de arte e ponto de vista autoral. Filmes institucionais, campanhas, arquitetura, lifestyle e eventos corporativos.",
+        "telephone": "+5531995989536",
+        "email": "contato@cajufilms.com.br",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Belo Horizonte",
+          "addressRegion": "MG",
+          "addressCountry": "BR"
+        },
+        "areaServed": ["BR", "Internacional"],
+        "sameAs": ["https://www.instagram.com/caju.films/"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://cajufilms.com.br/#website",
+        "url": "https://cajufilms.com.br",
+        "name": "Caju Films",
+        "publisher": { "@id": "https://cajufilms.com.br/#organization" }
+      }
+    ]
   }
   </script>
 </head>
@@ -63,29 +89,23 @@
 
   <!-- ══════════════════════════════════════════════════════════════
        NAVEGAÇÃO
-       Estrutura: [Logo] ··· [Links centrados] ··· [CTA | Burger]
-       • .nav-links: absolutamente centrado no eixo horizontal da nav
-       • .nav-right: agrupa CTA + hambúrguer à direita
-       • .nav-overlay: fora da <nav> para não interferir no layout flex
+       [Logo · esquerda] [Links · centro absoluto] [CTA + Burger · direita]
   ══════════════════════════════════════════════════════════════ -->
   <nav id="nav" role="navigation" aria-label="Menu principal">
 
-    <!-- Logo — extremidade esquerda -->
     <a href="#hero" class="nav-logo" aria-label="Caju Films — página inicial">
-      <svg viewBox="0 0 200 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <text x="0"   y="42" font-family="'Cormorant Garamond', Georgia, serif" font-size="46" font-weight="600" fill="currentColor" letter-spacing="-0.5">CAJU</text>
-        <text x="108" y="42" font-family="'Cormorant Garamond', Georgia, serif" font-size="20" font-weight="400" fill="currentColor" opacity="0.55" letter-spacing="3">FILMS</text>
+      <svg viewBox="0 0 210 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <text x="0"   y="40" font-family="'Cormorant Garamond', Georgia, serif" font-size="44" font-weight="600" fill="currentColor" letter-spacing="-0.5">CAJU</text>
+        <text x="106" y="40" font-family="'Cormorant Garamond', Georgia, serif" font-size="18" font-weight="300" fill="currentColor" opacity="0.5" letter-spacing="4">FILMS</text>
       </svg>
     </a>
 
-    <!-- Links — absolutamente centrados (independente da largura do logo/CTA) -->
     <ul class="nav-links" role="list" id="navLinks">
       <li><a href="#sobre"      class="nav-link">Sobre</a></li>
       <li><a href="#linguagens" class="nav-link">Linguagens</a></li>
       <li><a href="#projetos"   class="nav-link">Portfólio</a></li>
     </ul>
 
-    <!-- Direita: CTA desktop + botão hambúrguer mobile -->
     <div class="nav-right">
       <a href="https://wa.me/5531995989536?text=Ol%C3%A1%2C%20Caju%20Films.%20Cheguei%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto."
          class="nav-cta" target="_blank" rel="noopener noreferrer">
@@ -101,8 +121,12 @@
 
   </nav>
 
-  <!-- Overlay do menu mobile — FORA da <nav> para não afetar o layout flex -->
-  <div class="nav-overlay" id="navOverlay" aria-hidden="true" role="dialog" aria-label="Menu">
+  <!-- Overlay mobile — fora da <nav> para não afetar o flex layout -->
+  <div class="nav-overlay" id="navOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Menu de navegação">
+    <button class="overlay-close" aria-label="Fechar menu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
     <ul class="nav-overlay-links" role="list">
       <li><a href="#sobre"      class="overlay-link">Sobre</a></li>
       <li><a href="#linguagens" class="overlay-link">Linguagens</a></li>
@@ -113,20 +137,28 @@
 
 
   <!-- ══════════════════════════════════════════════════════════════
-       HERO — Vídeo fullscreen com overlay
+       HERO — Vídeo fullscreen
 
-       Coloque o arquivo em: assets/hero-reel.mp4
-       Cenas recomendadas:
-       – Close de lente com foco desfocando/focando (metalinguagem)
-       – Drone sobre BH ao entardecer com luz dourada
-       – Slow-mo de evento com luz lateral difusa
-       – Establishing shot de arquitetura com movimento calculado
+       Instruções de conteúdo:
+       ─ Vídeo principal:  assets/hero-reel.mp4
+         Especificações: H.264, 1080p, mín. 15 fps, max 20 MB
+         Cenas ideais:
+           · Close-up de lente com bokeh entrando/saindo de foco
+           · Drone sobre BH ao entardecer com luz dourada rasante
+           · Slow-mo de equipamento de cinema em operação
+           · Establishing shot de arquitetura com dolly in calculado
+           · Corte de colorização — paleta Sombra/Linho
 
-       Poster (fallback): assets/hero-poster.jpg
+       ─ Poster (fallback): assets/hero-poster.jpg
+         Primeiro frame do vídeo ou o frame mais impactante (1920×1080)
+
+       Quando o arquivo de vídeo não existir:
+       O fundo Sombra (#1E1A17) é exibido automaticamente pelo CSS.
   ══════════════════════════════════════════════════════════════ -->
-  <section id="hero" aria-label="Introdução">
+  <section id="hero" aria-label="Caju Films — Produção Audiovisual Premium">
 
-    <div class="hero-media" aria-hidden="true">
+    <!-- Fundo em vídeo -->
+    <div class="hero-bg" aria-hidden="true" id="heroBg">
       <video class="hero-video" autoplay muted loop playsinline preload="auto"
              poster="assets/hero-poster.jpg">
         <source src="assets/hero-reel.mp4" type="video/mp4" />
@@ -134,17 +166,21 @@
       <div class="hero-overlay"></div>
     </div>
 
+    <!-- Conteúdo sobreposto -->
     <div class="hero-content">
 
+      <!-- Isotipo C -->
       <div class="hero-isotipo fade-up" aria-hidden="true">
         <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M60 21C53 13 43 9 32 12C19 16 9 28 11 43C13 57 26 68 40 67C48 66 55 62 60 56"
-                stroke="rgba(232,226,217,0.9)" stroke-width="6.5" stroke-linecap="round" fill="none"/>
-          <circle cx="60" cy="56" r="5" fill="rgba(184,92,42,0.95)"/>
+                stroke="rgba(232,226,217,0.85)" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+          <circle cx="60" cy="56" r="4.5" fill="#B85C2A"/>
         </svg>
       </div>
 
-      <span class="label label--light fade-up fade-delay-1">Produção Audiovisual · BH — Brasil — Internacional</span>
+      <p class="hero-label fade-up fade-delay-1">
+        Produção Audiovisual &nbsp;·&nbsp; BH — Brasil — Internacional
+      </p>
 
       <h1 class="hero-title fade-up fade-delay-2">
         Cinema para quem<br>constrói marcas.
@@ -159,13 +195,16 @@
            class="btn btn-primary" target="_blank" rel="noopener noreferrer">
           Falar sobre seu projeto
         </a>
-        <a href="#projetos" class="btn btn-ghost">Ver portfólio</a>
+        <a href="#projetos" class="btn btn-ghost">
+          Ver portfólio
+        </a>
       </div>
 
     </div>
 
+    <!-- Indicador de scroll -->
     <div class="hero-scroll fade-up fade-delay-5" aria-hidden="true">
-      <div class="scroll-bar"></div>
+      <div class="scroll-line"></div>
     </div>
 
   </section>
@@ -174,13 +213,17 @@
   <!-- ══════════════════════════════════════════════════════════════
        SOBRE — Manifesto
   ══════════════════════════════════════════════════════════════ -->
-  <section id="sobre" aria-labelledby="sobre-heading">
+  <section id="sobre" aria-labelledby="sobre-titulo">
     <div class="section-inner section-inner--narrow">
-      <span class="label fade-up">Manifesto</span>
-      <h2 id="sobre-heading" class="section-title fade-up fade-delay-1">
+
+      <p class="label fade-up">Manifesto</p>
+
+      <h2 id="sobre-titulo" class="section-title fade-up fade-delay-1">
         Não fazemos vídeos.<br>Fazemos imagens que posicionam.
       </h2>
+
       <div class="sobre-accent fade-up fade-delay-2" aria-hidden="true"></div>
+
       <p class="sobre-text fade-up fade-delay-2">
         A Caju Films é uma produtora audiovisual baseada em Belo Horizonte.
         Trabalhamos com marcas, arquitetos, hoteleiros e curadores que sabem
@@ -188,192 +231,246 @@
         com escuta, atravessa um processo criativo rigoroso e termina com uma
         entrega que tem identidade própria.
       </p>
-      <p class="sobre-text sobre-text--secondary fade-up fade-delay-3">
+
+      <p class="sobre-secondary fade-up fade-delay-3">
         Disponíveis para projetos no Brasil e internacionalmente.
       </p>
+
     </div>
   </section>
 
 
   <!-- ══════════════════════════════════════════════════════════════
-       LINGUAGENS — Renomeado de "Serviços"
+       LINGUAGENS — O que fazemos
   ══════════════════════════════════════════════════════════════ -->
-  <section id="linguagens" aria-labelledby="linguagens-heading">
+  <section id="linguagens" aria-labelledby="linguagens-titulo">
     <div class="section-inner">
-      <div class="section-header fade-up">
-        <span class="label">Linguagens</span>
-        <h2 id="linguagens-heading" class="section-title">
+
+      <header class="section-header fade-up">
+        <p class="label">Linguagens</p>
+        <h2 id="linguagens-titulo" class="section-title">
           Cada projeto fala<br>uma linguagem.
         </h2>
-      </div>
+      </header>
+
       <div class="cards-grid">
+
         <article class="card fade-up fade-delay-1">
-          <div class="card-mark" aria-hidden="true">M</div>
+          <span class="card-mark" aria-hidden="true">M</span>
           <h3 class="card-title">Marcas</h3>
           <p class="card-desc">Filmes institucionais e campanhas para marcas que precisam de linguagem — não apenas de vídeo.</p>
         </article>
+
         <article class="card fade-up fade-delay-2">
-          <div class="card-mark" aria-hidden="true">C</div>
+          <span class="card-mark" aria-hidden="true">C</span>
           <h3 class="card-title">Corporate</h3>
           <p class="card-desc">Cobertura de eventos, convenções e treinamentos com estética de alto padrão e entrega ágil.</p>
         </article>
+
         <article class="card fade-up fade-delay-3">
-          <div class="card-mark" aria-hidden="true">A</div>
+          <span class="card-mark" aria-hidden="true">A</span>
           <h3 class="card-title">Arquitetura</h3>
           <p class="card-desc">Para arquitetos, construtores e estúdios de design. Cada ângulo escolhido para revelar — não apenas registrar.</p>
         </article>
+
         <article class="card fade-up fade-delay-1">
-          <div class="card-mark" aria-hidden="true">L</div>
+          <span class="card-mark" aria-hidden="true">L</span>
           <h3 class="card-title">Lifestyle</h3>
           <p class="card-desc">Moda, gastronomia, beleza e experiências de marca. Conteúdo editorial com identidade visual própria.</p>
         </article>
+
         <article class="card fade-up fade-delay-2">
-          <div class="card-mark" aria-hidden="true">E</div>
+          <span class="card-mark" aria-hidden="true">E</span>
           <h3 class="card-title">Eventos</h3>
           <p class="card-desc">De formaturas a eventos de luxo — cobertura completa que respeita o detalhe e o ritmo do ao vivo.</p>
         </article>
+
         <article class="card fade-up fade-delay-3">
-          <div class="card-mark" aria-hidden="true">V</div>
+          <span class="card-mark" aria-hidden="true">V</span>
           <h3 class="card-title">Viagens</h3>
           <p class="card-desc">Produções em destino para hotéis, turismo e experiências premium. Disponíveis internacionalmente.</p>
         </article>
+
       </div>
     </div>
   </section>
 
 
   <!-- ══════════════════════════════════════════════════════════════
-       PORTFÓLIO
-       Ordem dos 4 projetos:
-       1. Zoomlion China  → escala internacional, calibre global
-       2. Hotel Fazenda   → lifestyle premium, travel filmmaking
-       3. Arquitetura     → força visual, alto ticket médio
-       4. Aldir Blanc     → profundidade cultural, diferenciador
+       PORTFÓLIO — 6 projetos selecionados
 
-       Substituir placeholders por:
-       <img src="assets/projeto-xxx.jpg" alt="..." />
-       Dimensões: 1200×675px (16:9)
+       Para substituir cada placeholder, coloque a tag <img> dentro
+       de .project-thumb e remova o .project-placeholder:
+
+         <div class="project-thumb">
+           <img src="assets/projeto-zoomlion.jpg"
+                alt="Descrição da imagem para acessibilidade"
+                loading="lazy" width="1200" height="675" />
+         </div>
+
+       Especificações de imagem recomendadas:
+         · Formato: JPG (qualidade 85) ou WebP
+         · Dimensões: 1200 × 675 px (proporção 16:9)
+         · Tamanho máximo: 400 KB por imagem
   ══════════════════════════════════════════════════════════════ -->
-  <section id="projetos" aria-labelledby="projetos-heading">
+  <section id="projetos" aria-labelledby="projetos-titulo">
     <div class="section-inner">
-      <div class="projetos-header fade-up">
-        <span class="label label--accent">Portfólio</span>
-        <h2 id="projetos-heading" class="section-title section-title--light">
+
+      <header class="projetos-header fade-up">
+        <p class="label label--accent">Portfólio</p>
+        <h2 id="projetos-titulo" class="section-title section-title--light">
           Trabalhos selecionados.
         </h2>
-      </div>
+      </header>
+
       <div class="projetos-grid">
 
-        <article class="project-card fade-up fade-delay-1">
+        <!-- 01 — Zoomlion (Marcas · China) -->
+        <article class="project-card fade-up fade-delay-1" data-index="0">
           <div class="project-thumb">
-            <!-- SUBSTITUIR: <img src="assets/projeto-zoomlion.jpg" alt="Zoomlion — Lançamento Global" /> -->
-            <div class="project-thumb-placeholder">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-                <rect x="4" y="10" width="32" height="22" rx="2" stroke="currentColor" stroke-width="1.2"/>
-                <path d="M4 16h32M11 10V8M29 10V8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-                <circle cx="20" cy="22" r="5" stroke="currentColor" stroke-width="1.2"/>
-              </svg>
+            <!-- <img src="assets/projeto-zoomlion.jpg" alt="Zoomlion — Lançamento Global, China" loading="lazy" width="1200" height="675" /> -->
+            <div class="project-placeholder" aria-hidden="true">
+              <span class="project-placeholder-num">01</span>
             </div>
           </div>
-          <div class="project-info">
+          <footer class="project-info">
             <h3 class="project-title">Zoomlion — Lançamento Global</h3>
             <span class="project-cat">Marcas · China</span>
-          </div>
-          <div class="project-hover-line" aria-hidden="true"></div>
+          </footer>
+          <div class="project-line" aria-hidden="true"></div>
         </article>
 
-        <article class="project-card fade-up fade-delay-2">
+        <!-- 02 — Hotel Fazenda (Lifestyle · Turismo) -->
+        <article class="project-card fade-up fade-delay-2" data-index="1">
           <div class="project-thumb">
-            <!-- SUBSTITUIR: <img src="assets/projeto-hotel-fazenda.jpg" alt="Hotel Fazenda" /> -->
-            <div class="project-thumb-placeholder">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-                <path d="M5 32L14 14l11 12 7-8 8 14" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="28" cy="10" r="4" stroke="currentColor" stroke-width="1.2"/>
-              </svg>
+            <!-- <img src="assets/projeto-hotel-fazenda.jpg" alt="Hotel Fazenda — Lifestyle e Turismo" loading="lazy" width="1200" height="675" /> -->
+            <div class="project-placeholder" aria-hidden="true">
+              <span class="project-placeholder-num">02</span>
             </div>
           </div>
-          <div class="project-info">
+          <footer class="project-info">
             <h3 class="project-title">Hotel Fazenda</h3>
             <span class="project-cat">Lifestyle · Turismo</span>
-          </div>
-          <div class="project-hover-line" aria-hidden="true"></div>
+          </footer>
+          <div class="project-line" aria-hidden="true"></div>
         </article>
 
-        <article class="project-card fade-up fade-delay-3">
+        <!-- 03 — Arquitetura -->
+        <article class="project-card fade-up fade-delay-1" data-index="2">
           <div class="project-thumb">
-            <!-- SUBSTITUIR: <img src="assets/projeto-arquitetura.jpg" alt="Arquitetura" /> -->
-            <div class="project-thumb-placeholder">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-                <path d="M5 32h30M11 32V18l9-9 9 9v14M17 32v-8h6v8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+            <!-- <img src="assets/projeto-arquitetura.jpg" alt="Projeto de Arquitetura residencial — Belo Horizonte" loading="lazy" width="1200" height="675" /> -->
+            <div class="project-placeholder" aria-hidden="true">
+              <span class="project-placeholder-num">03</span>
             </div>
           </div>
-          <div class="project-info">
+          <footer class="project-info">
             <h3 class="project-title">Residência — Arquitetura</h3>
             <span class="project-cat">Arquitetura · BH</span>
-          </div>
-          <div class="project-hover-line" aria-hidden="true"></div>
+          </footer>
+          <div class="project-line" aria-hidden="true"></div>
         </article>
 
-        <article class="project-card fade-up fade-delay-4">
+        <!-- 04 — Suíça (Viagens) -->
+        <article class="project-card fade-up fade-delay-2" data-index="3">
           <div class="project-thumb">
-            <!-- SUBSTITUIR: <img src="assets/projeto-aldir-blanc.jpg" alt="Aldir Blanc — Congonhas" /> -->
-            <div class="project-thumb-placeholder">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-                <circle cx="20" cy="20" r="13" stroke="currentColor" stroke-width="1.2"/>
-                <circle cx="20" cy="20" r="7" stroke="currentColor" stroke-width="1.2"/>
-                <circle cx="20" cy="20" r="2" fill="currentColor"/>
-              </svg>
+            <!-- <img src="assets/projeto-suica.jpg" alt="Suíça — Produção audiovisual em destino" loading="lazy" width="1200" height="675" /> -->
+            <div class="project-placeholder" aria-hidden="true">
+              <span class="project-placeholder-num">04</span>
             </div>
           </div>
-          <div class="project-info">
-            <h3 class="project-title">Congonhas — Aldir Blanc</h3>
-            <span class="project-cat">Documentário · Cultural</span>
+          <footer class="project-info">
+            <h3 class="project-title">Suíça — Em Destino</h3>
+            <span class="project-cat">Viagens · Internacional</span>
+          </footer>
+          <div class="project-line" aria-hidden="true"></div>
+        </article>
+
+        <!-- 05 — Lifestyle -->
+        <article class="project-card fade-up fade-delay-1" data-index="4">
+          <div class="project-thumb">
+            <!-- <img src="assets/projeto-lifestyle.jpg" alt="Lifestyle — Produção editorial de marca" loading="lazy" width="1200" height="675" /> -->
+            <div class="project-placeholder" aria-hidden="true">
+              <span class="project-placeholder-num">05</span>
+            </div>
           </div>
-          <div class="project-hover-line" aria-hidden="true"></div>
+          <footer class="project-info">
+            <h3 class="project-title">Editorial — Lifestyle</h3>
+            <span class="project-cat">Lifestyle · Editorial</span>
+          </footer>
+          <div class="project-line" aria-hidden="true"></div>
+        </article>
+
+        <!-- 06 — Corporativo -->
+        <article class="project-card fade-up fade-delay-2" data-index="5">
+          <div class="project-thumb">
+            <!-- <img src="assets/projeto-corporativo.jpg" alt="Evento corporativo — Cobertura audiovisual" loading="lazy" width="1200" height="675" /> -->
+            <div class="project-placeholder" aria-hidden="true">
+              <span class="project-placeholder-num">06</span>
+            </div>
+          </div>
+          <footer class="project-info">
+            <h3 class="project-title">Evento — Corporativo</h3>
+            <span class="project-cat">Corporate · Evento</span>
+          </footer>
+          <div class="project-line" aria-hidden="true"></div>
         </article>
 
       </div>
-      <div class="projetos-footer fade-up">
-        <a href="https://www.instagram.com/caju.films/" class="btn btn-outline-light"
-           target="_blank" rel="noopener noreferrer">
+
+      <div class="projetos-cta fade-up">
+        <a href="https://www.instagram.com/caju.films/"
+           class="btn btn-outline-light" target="_blank" rel="noopener noreferrer">
           Ver portfólio completo no Instagram
         </a>
       </div>
+
     </div>
   </section>
 
 
   <!-- ══════════════════════════════════════════════════════════════
-       CONTATO
+       CONTATO — CTA final
   ══════════════════════════════════════════════════════════════ -->
-  <section id="contato" aria-labelledby="contato-heading">
+  <section id="contato" aria-labelledby="contato-titulo">
     <div class="section-inner section-inner--narrow">
-      <span class="label label--accent fade-up">Próximo passo</span>
-      <h2 id="contato-heading" class="section-title contato-title fade-up fade-delay-1">
+
+      <p class="label label--accent fade-up">Próximo passo</p>
+
+      <h2 id="contato-titulo" class="contato-title fade-up fade-delay-1">
         Tem um projeto<br>em mente?
       </h2>
+
       <div class="contato-divider fade-up fade-delay-2" aria-hidden="true"></div>
+
       <p class="contato-sub fade-up fade-delay-3">
-        Agende uma conversa direta.<br>Sem formulários. Sem burocracia.
+        Agende uma conversa direta.<br>
+        Sem formulários. Sem burocracia.
       </p>
+
       <div class="contato-actions fade-up fade-delay-4">
         <a href="https://wa.me/5531995989536?text=Ol%C3%A1%2C%20Caju%20Films.%20Cheguei%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto."
            class="btn btn-primary" target="_blank" rel="noopener noreferrer">
           Falar pelo WhatsApp
         </a>
         <!--
-          Calendly / Google Meet — descomente quando tiver o link:
-          <a href="https://calendly.com/cajufilms/30min" class="btn btn-secondary"
-             target="_blank" rel="noopener noreferrer">Agendar uma call</a>
-        -->
+          ── CALENDLY / GOOGLE MEET ────────────────────────────────────
+          Quando disponível, ative descomentando:
+
+          <a href="https://calendly.com/cajufilms/30min"
+             class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+            Agendar uma call
+          </a>
+          ─────────────────────────────────────────────────────────── -->
       </div>
-      <div class="contato-info fade-up fade-delay-5">
-        <a href="https://www.instagram.com/caju.films/" class="contato-link"
-           target="_blank" rel="noopener noreferrer">@caju.films</a>
+
+      <div class="contato-links fade-up fade-delay-5">
+        <a href="https://www.instagram.com/caju.films/"
+           class="contato-link" target="_blank" rel="noopener noreferrer">@caju.films</a>
         <span class="contato-sep" aria-hidden="true">·</span>
-        <a href="mailto:contato@cajufilms.com.br" class="contato-link">contato@cajufilms.com.br</a>
+        <a href="mailto:contato@cajufilms.com.br"
+           class="contato-link">contato@cajufilms.com.br</a>
       </div>
+
     </div>
   </section>
 
@@ -383,23 +480,30 @@
   ══════════════════════════════════════════════════════════════ -->
   <footer role="contentinfo">
     <div class="footer-inner">
-      <div class="footer-isotipo" aria-label="Caju Films">
+
+      <div class="footer-iso" aria-label="Caju Films">
         <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M60 21C53 13 43 9 32 12C19 16 9 28 11 43C13 57 26 68 40 67C48 66 55 62 60 56"
-                stroke="#E8E2D9" stroke-width="6.5" stroke-linecap="round" fill="none"/>
-          <circle cx="60" cy="56" r="5" fill="#B85C2A"/>
+                stroke="#E8E2D9" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+          <circle cx="60" cy="56" r="4.5" fill="#B85C2A"/>
         </svg>
       </div>
-      <p class="footer-name">Caju Films</p>
-      <p class="footer-location">Belo Horizonte · Brasil</p>
+
+      <p class="footer-brand">Caju Films</p>
+      <p class="footer-loc">Belo Horizonte · Brasil</p>
+
       <nav class="footer-nav" aria-label="Links do rodapé">
-        <a href="https://www.instagram.com/caju.films/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.instagram.com/caju.films/"
+           target="_blank" rel="noopener noreferrer">Instagram</a>
         <span aria-hidden="true">·</span>
-        <a href="https://wa.me/5531995989536" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://wa.me/5531995989536"
+           target="_blank" rel="noopener noreferrer">WhatsApp</a>
         <span aria-hidden="true">·</span>
         <a href="mailto:contato@cajufilms.com.br">E-mail</a>
       </nav>
+
       <p class="footer-copy">© 2026 Caju Films. Todos os direitos reservados.</p>
+
     </div>
   </footer>
 
