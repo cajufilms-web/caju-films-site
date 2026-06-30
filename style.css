@@ -640,11 +640,11 @@ h1, h2, h3, h4 { font-weight: inherit; }
   margin-bottom: var(--sp-6);   /* 48px */
 }
 .hero-logo-img {
-  width: 72px;
-  height: 72px;
-  margin: 0 auto;
-  object-fit: contain;
-  display: block;
+    width: 96px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
 }
 
 /* Label / eyebrow do hero */
@@ -1381,10 +1381,10 @@ footer {
 }
 
 .nav-logo-img {
-  width: 42px;
-  height: 42px;
-  object-fit: contain;
-  display: block;
+    width: 42px;
+    height: auto;
+    display: block;
+    object-fit: contain;
 }
 
 .nav-links {
