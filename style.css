@@ -1059,10 +1059,11 @@ footer {
   margin-bottom: var(--sp-4);   /* 32px */
 }
 .footer-logo-img {
-  width: 64px;
-  height: 64px;
-  object-fit: contain;
-  display: block;
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
 }
 
 /* Linha divisória discreta */
@@ -1440,11 +1441,10 @@ footer {
 }
 /* AJUSTE FINAL RODAPÉ */
 .footer-iso {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  margin: 0 auto 32px auto !important;
-  width: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--sp-4);
 }
 
 .footer-logo-img {
